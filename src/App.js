@@ -79,15 +79,22 @@ function App(props) {
     ])
     const setBought = (id) => {
     setDatabase(
-        database.map((key) => {
+        database.map((key, index) => {
             if (key.id === id) {
-                return {...key, bought : true}
-            } else
-                if (key.id === id)
-                    return {...key,bought: false}
-                else  {
-                    return key
+                // if(key.bought === true) {
+                //     return  {
+                //         ...key, bought : false,
+                //     }
+                // } else {
+                //     return {
+                //     ...key, bought : true,
+                // }}
+                return {
+                    ...key,
+                    bought: !key.bought
                 }
+            }
+            return key;
         })
     )
 }
